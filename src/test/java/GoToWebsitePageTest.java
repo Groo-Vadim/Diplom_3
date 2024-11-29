@@ -50,7 +50,7 @@ public class GoToWebsitePageTest {
 
     @Test
     @DisplayName("Переход в личный кабинет по клику на «Личный кабинет")
-    public void GoToPersonalAccount() {
+    public void goToPersonalAccount() {
 
         // Ввод данных
         loginPage.enterEmail("test@name8.com");
@@ -78,7 +78,7 @@ public class GoToWebsitePageTest {
 
     @Test
     @DisplayName("Переход в Конструктор по клику на кнопку конструктор")
-    public void GoToСonstructorPressToConstructor() {
+    public void goToСonstructorPressToConstructor() {
 
         // Ввод данных
         loginPage.enterEmail("test@name8.com");
@@ -116,7 +116,7 @@ public class GoToWebsitePageTest {
 
     @Test
     @DisplayName("Переход в Конструктор по клику на логотип Stellar Burgers")
-    public void GoToСonstructorPressToLogoBurgers() {
+    public void goToСonstructorPressToLogoBurgers() {
 
         // Ввод данных
         loginPage.enterEmail("test@name8.com");
@@ -154,7 +154,7 @@ public class GoToWebsitePageTest {
 
     @Test
     @DisplayName("Выход из аккаунта по кнопке «Выйти» в личном кабинете")
-    public void ExitAccount() {
+    public void exitAccount() {
 
         // Ввод данных
         loginPage.enterEmail("test@name8.com");

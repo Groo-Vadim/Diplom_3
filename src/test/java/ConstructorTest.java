@@ -6,6 +6,7 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import pageobject.*;
 import static org.junit.Assert.assertEquals;
+import static pageobject.ConstructorLocators.EMERGINGCLASS;
 
 
 public class ConstructorTest {
@@ -32,36 +33,27 @@ public class ConstructorTest {
         //Клик по кнопке Начинки
         constructorPage.clickFillingButton();
 
-        // Проверка появления заголовка поля Начинки
-        assertEquals("Должен произойти переход на поле с заголовком Начинки",
-                "Начинки", constructorPage.textFillingsFieldHeader());
+        // Проверка появления всплывающего класса
+        assertEquals("При клике на кнопку Начинки class должен быть "+ EMERGINGCLASS,EMERGINGCLASS, constructorPage.getClassOfEmergingClassFilling(driver));
     }
 
     @Test
     @DisplayName("Переход в раздел булки")
     public void bunConstructor() {
 
-        //Клик по кнопке Начинки
-        constructorPage.clickFillingButton();
-
-        //Клик по кнопке Начинки
-        constructorPage.clickBunButton();
-
-        // Проверка появления заголовка поля Начинки
-        assertEquals("Должен произойти переход на поле с заголовком Булки",
-                "Булки", constructorPage.textBunsFieldHeader());
+        // Проверка появления всплывающего класса
+        assertEquals("При клике на кнопку Булки class должен быть "+ EMERGINGCLASS,EMERGINGCLASS, constructorPage.getClassOfEmergingClassBun(driver));
     }
 
     @Test
     @DisplayName("Переход в раздел соусы")
     public void sauceConstructor() {
 
-        //Клик по кнопке Начинки
+        //Клик по кнопке Соусы
         constructorPage.clickSauceButton();
 
-        // Проверка появления заголовка поля Начинки
-        assertEquals("Должен произойти переход на поле с заголовком Соусы",
-                "Соусы", constructorPage.textSausesFieldHeader());
+        // Проверка появления всплывающего класса
+        assertEquals("При клике на кнопку Соусы class должен быть "+ EMERGINGCLASS,EMERGINGCLASS, constructorPage.getClassOfEmergingClassSauce(driver));
     }
 
     @After

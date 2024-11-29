@@ -4,8 +4,10 @@ import java.time.Duration;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 
 
 public class ConstructorLocators {
@@ -17,14 +19,14 @@ public class ConstructorLocators {
     private By sauceButton = By.xpath("//span[contains(text(),'Соусы')]");
     //Кнопка Начинки
     private By fillingButton = By.xpath("//span[contains(text(),'Начинки')]");
-    //Заголовок поля выбора булочек
-    private By bunsFieldHeader = By.xpath("//h2[contains(text(),'Булки')]");
-    //Заголовок поля выбора соусов
-    private By sausesFieldHeader = By.xpath("//h2[contains(text(),'Соусы')]");
-    //Заголовок поля выбора начинок
-    private By fillingsFieldHeader = By.xpath("//h2[contains(text(),'Начинки')]");
+    //Появляющийся класс булочек
+    private By emergingClassBun = By.xpath("//span[contains(text(),'Булки')]/parent::*");
+    //Появляющийся класс соусов
+    private By emergingClassSauce = By.xpath("//span[contains(text(),'Соусы')]/parent::*");
+    //Появляющийся класс начинок
+    private By emergingClassFilling = By.xpath("//span[contains(text(),'Начинки')]/parent::*");
 
-
+    public static final String EMERGINGCLASS  = "tab_tab__1SPyG tab_tab_type_current__2BEPc pt-4 pr-10 pb-4 pl-10 noselect";
     private final WebDriver driver;
     private final WebDriverWait wait;
 
@@ -49,18 +51,33 @@ public class ConstructorLocators {
         wait.until(ExpectedConditions.elementToBeClickable(fillingButton)).click();
     }
 
-    @Step("Метод возвращает текст из поля заголовка выбора булочек")
-    public String textBunsFieldHeader() {
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(bunsFieldHeader)).getText();
+    @Step("Получение появляющегося класса булочек")
+    public String getClassOfEmergingClassBun(WebDriver driver) {
+        // Находим элемент по локатору
+        WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(emergingClassBun));
+        // Получаем значение атрибута class и сохраняем в переменной
+        String classValueBun = element.getAttribute("class");
+        // Возвращаем значение переменной
+        return classValueBun;
     }
 
-    @Step("Метод возвращает текст из поля заголовка выбора соусов")
-    public String textSausesFieldHeader() {
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(sausesFieldHeader)).getText();
+    @Step("Получение появляющегося класса соусов")
+    public String getClassOfEmergingClassSauce(WebDriver driver) {
+        // Находим элемент по локатору
+        WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(emergingClassSauce));
+        // Получаем значение атрибута class и сохраняем в переменной
+        String classValueSauce = element.getAttribute("class");
+        // Возвращаем значение переменной
+        return classValueSauce;
     }
 
-    @Step("Метод возвращает текст из поля заголовка выбора начинок")
-    public String textFillingsFieldHeader() {
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(fillingsFieldHeader)).getText();
+    @Step("Получение появляющегося класса начинки")
+    public String getClassOfEmergingClassFilling(WebDriver driver) {
+        // Находим элемент по локатору
+        WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(emergingClassFilling));
+        // Получаем значение атрибута class и сохраняем в переменной
+        String classValueFilling = element.getAttribute("class");
+        // Возвращаем значение переменной
+        return classValueFilling;
     }
 }

@@ -9,7 +9,7 @@ import static io.restassured.RestAssured.given;
 // Класс для работы с API пользователя
 public class UserActionsSetup {
     // Базовый URL
-    private final String BASE_URL = "https://stellarburgers.nomoreparties.site";
+    private static final String BASE_URL = "https://stellarburgers.nomoreparties.site";
 
     // Ручки API
     // Регистрация пользователя
